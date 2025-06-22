@@ -32,8 +32,7 @@ def load_table_from_csv():
         fill_form(row)
 
 def fill_form(val):
-    print("enter")
-    print(val["Order number"])
+
     page = browser.page()
     page.click("//button[normalize-space()='Yep']")
     page.select_option("//select[@id='head']", val["Head"])
@@ -49,7 +48,6 @@ def fill_form(val):
             screenshot_path = screenshot_robot(int(val["Order number"]))
             embed_screenshot_to_receipt(screenshot_path, pdf_path)
             page.click("#order-another")
-            print("exit")
             break
 
 
